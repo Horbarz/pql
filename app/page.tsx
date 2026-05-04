@@ -1,6 +1,7 @@
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TrustedBy from "@/components/TrustedBy";
 import ServicesSection from "@/components/ServicesSection";
 import TestCatalystSection from "@/components/TestCatalystSection";
 import AcademySection from "@/components/AcademySection";
@@ -17,7 +18,8 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-<ServicesSection />
+        <TrustedBy />
+        <ServicesSection />
         <TestCatalystSection />
         <AcademySection />
         <HowWeWork />

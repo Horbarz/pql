@@ -27,13 +27,10 @@ export default function Navbar() {
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 lg:px-12 py-4 transition-all duration-300"
         style={{
-          background: scrolled
-            ? "rgba(3,7,18,0.85)"
-            : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled
-            ? "1px solid rgba(255,255,255,0.06)"
-            : "1px solid transparent",
+          background: scrolled ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,0.85)",
+          backdropFilter: "blur(20px)",
+          borderBottom: scrolled ? "1px solid rgba(0,0,0,0.07)" : "1px solid transparent",
+          boxShadow: scrolled ? "0 1px 20px rgba(0,0,0,0.06)" : "none",
         }}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -41,11 +38,11 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-200">
             <Zap size={16} className="text-white fill-white" />
           </div>
-          <span className="text-base font-bold tracking-tight text-white">
-            Pison<span className="text-indigo-400">QA</span>Lab
+          <span className="text-base font-bold tracking-tight text-slate-900">
+            Pison<span className="text-indigo-500">QA</span>Lab
           </span>
         </a>
 
@@ -55,10 +52,10 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-slate-400 hover:text-white transition-colors duration-200 relative group"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 relative group font-medium"
             >
               {link.label}
-              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-indigo-400 group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-indigo-500 group-hover:w-full transition-all duration-300" />
             </a>
           ))}
         </div>
@@ -67,16 +64,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#contact"
-            className="text-sm text-slate-300 hover:text-white transition-colors px-4 py-2"
+            className="text-sm text-slate-500 hover:text-slate-900 transition-colors px-4 py-2 font-medium"
           >
             Contact
           </a>
           <a
             href="#testcatalyst"
-            className="text-sm font-medium px-5 py-2 rounded-lg text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-indigo-500/25"
-            style={{
-              background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-            }}
+            className="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-indigo-200"
+            style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
           >
             Get Started
           </a>
@@ -84,7 +79,7 @@ export default function Navbar() {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden text-slate-300 hover:text-white p-2"
+          className="md:hidden text-slate-600 hover:text-slate-900 p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -102,12 +97,11 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
           >
             <div
-              className="absolute inset-0 bg-[#030712]/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-white/80 backdrop-blur-xl"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
-              className="absolute top-20 left-4 right-4 rounded-2xl border border-white/10 p-6 flex flex-col gap-4"
-              style={{ background: "rgba(15,23,42,0.95)" }}
+              className="absolute top-20 left-4 right-4 rounded-2xl border border-slate-100 bg-white p-6 flex flex-col gap-4 shadow-xl shadow-slate-100"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
@@ -118,7 +112,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-base text-slate-300 hover:text-white py-2 border-b border-white/5 transition-colors"
+                  className="text-base text-slate-600 hover:text-slate-900 py-2 border-b border-slate-100 transition-colors font-medium"
                 >
                   {link.label}
                 </a>
@@ -126,7 +120,7 @@ export default function Navbar() {
               <a
                 href="#testcatalyst"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 text-center text-sm font-medium px-5 py-3 rounded-xl text-white"
+                className="mt-2 text-center text-sm font-semibold px-5 py-3 rounded-xl text-white"
                 style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
               >
                 Get Started

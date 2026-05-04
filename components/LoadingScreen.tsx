@@ -25,11 +25,11 @@ export default function LoadingScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#030712]"
-          exit={{ opacity: 0, scale: 1.05 }}
+          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white"
+          exit={{ opacity: 0, scale: 1.03 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <div className="absolute inset-0 dot-pattern opacity-30" />
+          <div className="absolute inset-0 dot-pattern opacity-40" />
 
           <motion.div
             className="relative flex flex-col items-center gap-8"
@@ -37,15 +37,13 @@ export default function LoadingScreen() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {/* Logo mark */}
             <div className="relative">
               <motion.div
-                className="w-20 h-20 rounded-2xl border border-indigo-500/30 flex items-center justify-center"
+                className="w-20 h-20 rounded-2xl border border-indigo-100 flex items-center justify-center"
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.15))",
+                  background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08))",
                 }}
               >
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
@@ -68,8 +66,8 @@ export default function LoadingScreen() {
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="absolute inset-0 rounded-2xl border border-indigo-500/20"
-                  animate={{ scale: [1, 1.8 + i * 0.4], opacity: [0.5, 0] }}
+                  className="absolute inset-0 rounded-2xl border border-indigo-300/40"
+                  animate={{ scale: [1, 1.8 + i * 0.4], opacity: [0.4, 0] }}
                   transition={{
                     duration: 1.8,
                     repeat: Infinity,
@@ -84,13 +82,12 @@ export default function LoadingScreen() {
               <p className="text-lg font-semibold gradient-text tracking-wide">
                 PisonQALab
               </p>
-              <p className="text-xs text-slate-500 mt-1 tracking-widest uppercase">
+              <p className="text-xs text-slate-400 mt-1 tracking-widest uppercase">
                 Initializing...
               </p>
             </div>
 
-            {/* Progress bar */}
-            <div className="w-48 h-0.5 bg-slate-800 rounded-full overflow-hidden">
+            <div className="w-48 h-0.5 bg-slate-100 rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{
@@ -100,7 +97,7 @@ export default function LoadingScreen() {
                 transition={{ duration: 0.1 }}
               />
             </div>
-            <p className="text-xs text-slate-600 tabular-nums">
+            <p className="text-xs text-slate-400 tabular-nums">
               {Math.min(Math.round(progress), 100)}%
             </p>
           </motion.div>
