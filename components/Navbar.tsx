@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { LogoIcon } from "./Logo";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -38,21 +39,19 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-200">
-            <Zap size={16} className="text-white fill-white" />
-          </div>
+          <LogoIcon size={34} />
           <span className="text-base font-bold tracking-tight text-slate-900">
             Pison<span className="text-indigo-500">QA</span>Lab
           </span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 relative group font-medium"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-200 relative group font-medium whitespace-nowrap"
             >
               {link.label}
               <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-indigo-500 group-hover:w-full transition-all duration-300" />
@@ -61,7 +60,7 @@ export default function Navbar() {
         </div>
 
         {/* CTA buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href="#contact"
             className="text-sm text-slate-500 hover:text-slate-900 transition-colors px-4 py-2 font-medium"
@@ -70,16 +69,16 @@ export default function Navbar() {
           </a>
           <a
             href="#testcatalyst"
-            className="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-indigo-200"
+            className="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-all duration-200 hover:opacity-90 hover:shadow-lg hover:shadow-indigo-200 whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}
           >
             Get Started
           </a>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile/tablet menu button */}
         <button
-          className="md:hidden text-slate-600 hover:text-slate-900 p-2"
+          className="lg:hidden text-slate-600 hover:text-slate-900 p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -91,7 +90,7 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

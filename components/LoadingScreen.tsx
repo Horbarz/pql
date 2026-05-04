@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { LogoIcon } from "./Logo";
 
 export default function LoadingScreen() {
   const [visible, setVisible] = useState(true);
@@ -37,37 +38,19 @@ export default function LoadingScreen() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="relative">
+            <div className="relative flex items-center justify-center">
               <motion.div
-                className="w-20 h-20 rounded-2xl border border-indigo-100 flex items-center justify-center"
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                style={{
-                  background: "linear-gradient(135deg, rgba(99,102,241,0.08), rgba(139,92,246,0.08))",
-                }}
+                animate={{ scale: [1, 1.06, 1] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path
-                    d="M6 18C6 11.373 11.373 6 18 6s12 5.373 12 12"
-                    stroke="#6366f1"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                  />
-                  <path
-                    d="M18 12v6l4 2"
-                    stroke="#8b5cf6"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <circle cx="18" cy="26" r="2" fill="#06b6d4" />
-                </svg>
+                <LogoIcon size={72} />
               </motion.div>
               {[0, 1, 2].map((i) => (
                 <motion.div
                   key={i}
-                  className="absolute inset-0 rounded-2xl border border-indigo-300/40"
-                  animate={{ scale: [1, 1.8 + i * 0.4], opacity: [0.4, 0] }}
+                  className="absolute rounded-full border border-indigo-300/30"
+                  style={{ width: 72, height: 72 }}
+                  animate={{ scale: [1, 1.9 + i * 0.4], opacity: [0.5, 0] }}
                   transition={{
                     duration: 1.8,
                     repeat: Infinity,

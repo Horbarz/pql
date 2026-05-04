@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, ExternalLink, Globe, Mail, MessageSquare, Video } from "lucide-react";
+import { ExternalLink, Globe, Mail, MessageSquare, Video } from "lucide-react";
+import { LogoIcon } from "./Logo";
 
 const links = {
   Services: ["Test Automation", "API Testing", "Mobile Testing", "Performance Testing", "Security Testing", "CI/CD Integration"],
@@ -27,9 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 py-16 border-b border-slate-100">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-md shadow-indigo-100">
-                <Zap size={16} className="text-white fill-white" />
-              </div>
+              <LogoIcon size={32} />
               <span className="text-base font-bold tracking-tight text-slate-900">
                 Pison<span className="text-indigo-500">QA</span>Lab
               </span>
@@ -73,10 +72,12 @@ export default function Footer() {
               <h4 className="text-base font-semibold text-slate-900 mb-1">Stay in the quality loop</h4>
               <p className="text-sm text-slate-500">QA insights, industry news, and TestCatalyst updates — weekly.</p>
             </div>
-            <div className="flex gap-2 w-full md:w-auto">
+            <div className="flex gap-2 w-full md:w-auto" suppressHydrationWarning>
               <input type="email" placeholder="your@email.com"
+                suppressHydrationWarning
                 className="flex-1 md:w-64 px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-indigo-300 outline-none text-sm text-slate-800 placeholder-slate-400 transition-colors" />
-              <button className="px-5 py-2.5 rounded-xl font-medium text-sm text-white transition-all duration-200 hover:opacity-90 flex-shrink-0"
+              <button suppressHydrationWarning
+                className="px-5 py-2.5 rounded-xl font-medium text-sm text-white transition-all duration-200 hover:opacity-90 flex-shrink-0"
                 style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)" }}>
                 Subscribe
               </button>
