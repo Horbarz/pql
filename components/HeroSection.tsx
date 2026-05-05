@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, ChevronDown, FileText, PenLine, Zap, BarChart2, Rocket } from "lucide-react";
+import BugHunter from "./BugHunter";
 
 interface Particle {
   id: number;
@@ -130,9 +131,14 @@ function ParticleField() {
 }
 
 export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-white pt-24 pb-16 overflow-x-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col items-center justify-center bg-white pt-24 pb-16 overflow-x-hidden"
+      style={{ cursor: "none" }}
+    >
       {/* Subtle grid */}
       <div className="absolute inset-0 grid-pattern opacity-70" />
 
@@ -163,6 +169,7 @@ export default function HeroSection() {
       />
 
       <ParticleField />
+      <BugHunter containerRef={sectionRef} />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl mx-auto w-full">
